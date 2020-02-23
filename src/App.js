@@ -1,9 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import Counter from "./components/Counter";
+import Box from "./components/Box";
 
 function App() {
-    const randomColor = ["#0E79B2", "#BF1363", "#F39237"];
+    const randomColor = [
+        "#0E79B2",
+        "#BF1363",
+        "#F39237"
+    ];
     const [number, setNumber] = useState(0);
     const [boxes, setBoxes] = useState([]);
     const [color, setColor] = useState(randomColor[Math.floor(Math.random() * 3)]);
@@ -12,11 +17,11 @@ function App() {
         if (number % 10 === 0) {
             setColor(randomColor[Math.floor(Math.random() * 3)]);
         }
-    }, [number, color]);
+    }, [number]);
 
     let getColor = () => {
         if (number % 5 === 0) {
-            let rand = Math.floor(Math.random() * 3);
+            let rand = Math.floor(Math.random() * randomColor.length);
             setColor(randomColor[rand]);
             return randomColor[rand];
         }
@@ -33,12 +38,12 @@ function App() {
 
 
     let box = boxes.map((it, idx) =>
-        <div className="box" style={{backgroundColor: it.color}}><p>{it.number}</p></div>
+       <Box color={it.color} number={it.number}/>
     );
 
     let reset = () => {
-      setNumber(0);
-      setBoxes([]);
+        setNumber(0);
+        setBoxes([]);
     };
 
     return (
