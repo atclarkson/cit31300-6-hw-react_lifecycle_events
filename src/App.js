@@ -11,11 +11,11 @@ function App() {
     ];
     const [number, setNumber] = useState(0);
     const [boxes, setBoxes] = useState([]);
-    const [color, setColor] = useState(randomColor[Math.floor(Math.random() * 3)]);
+    const [color, setColor] = useState(randomColor[Math.floor(Math.random() * randomColor.length)]);
 
     useEffect(() => {
         if (number % 10 === 0) {
-            setColor(randomColor[Math.floor(Math.random() * 3)]);
+            setColor(randomColor[Math.floor(Math.random() * randomColor.length)]);
         }
     }, [number]);
 
