@@ -38,7 +38,7 @@ function App() {
 
 
     let box = boxes.map((it, idx) =>
-       <Box color={it.color} number={it.number}/>
+       <Box key={idx} color={it.color} number={it.number}/>
     );
 
     let reset = () => {
